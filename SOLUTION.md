@@ -39,7 +39,7 @@ To not get confused, I will explain what each part of this command means:
 
 Now open a web browser and access http://localhost:8000. If it works it will open the server start page. To make it easy I created two index.html. One for Server A and the second for Server B. And you are accessing the second one without changing any firewall rules, proxy or any other trick. Only using ssh, like this picture below.
 
-picture
+![Image with Solution](https://github.com/adilsond/challenge-remote-access/raw/master/example%20network%20infrastructure%20with%20solution.png)
 
 Everything can be done, at once, using a shell script and using private/public keys. The ssh keys method can be explained [here](http://www.linuxproblem.org/art_9.html) . So the possible script to bring port 8000 from Server B to Client A is shown below.
 
