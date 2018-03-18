@@ -35,9 +35,9 @@ If we can do it from a remote ssh. We can do it with a remote port. Let's try th
 To not get confused, I will explain what each part of this command means:
 
  - 'ssh localhost -p 2222' connects to the port 2222 of the localhost. Remember that this port 2222 was forwarded from Server A to port 22 of Server B
- - '-L 8000:localhost:8000: This part works only when the connection is established. And this localhost is not from Client A. Is from Server B. So I'm telling ssh to get the port 8000 from localhost:2222 server, and make it available from at port 8000 at the localhost of the Client A. We have to remember that this port 2222 is Server B port 22
+ - '-L 8000:localhost:8000: This part works only when the connection is established. And this localhost is not from Client A. Is from Server B. So I'm telling ssh to get the port 8000 from localhost:2222 server, and make it available at port 8000 from the localhost of the Client A. We have to remember that this port 2222 is Server B port 22
 
-Now open a web browser and access http://localhost:8000. If it works it will open the server start page. To make it easy I created two index.html. One for Server A and the second for Server B. And you are accessing the second one without changing any firewall rules, proxy or any other trick. Only using ssh, like this picture below.
+Now open a web browser and access http://localhost:8000. If it works it will open the Server B start page. To make it easy I created two index.html. One for Server A and the second for Server B. And you are accessing the second one without changing any firewall rules, proxy or any other trick. Only using ssh, like this picture below.
 
 ![Image with Solution](https://github.com/adilsond/challenge-remote-access/raw/master/example%20network%20infrastructure%20with%20solution.png)
 
@@ -55,4 +55,4 @@ Everything can be done, at once, using a shell script and using private/public k
     ssh -fN localhost -p 2222 -L 8000:localhost:8000
     echo "Now connect to http://localhost:8000 to access Server B"
 
-To reproduce all commands I will provide both firewall rules from Server A and Server B and a httpd config file.
+To reproduce all commands you can use both firewall rules provided here and the httpd.conf for both servers. The remote network in the firewall was set to 192.168.10.0/24. But you can change to any other IP if you want.
